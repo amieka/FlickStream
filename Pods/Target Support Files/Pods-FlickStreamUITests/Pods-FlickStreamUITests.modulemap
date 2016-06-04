@@ -1,0 +1,6 @@
+framework module Pods_FlickStreamUITests {
+  umbrella header "Pods-FlickStreamUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
