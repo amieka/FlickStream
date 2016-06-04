@@ -18,6 +18,9 @@
 		D2651E661D031E4700E57130 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2651E641D031E4700E57130 /* LaunchScreen.storyboard */; };
 		D2651E711D031E4700E57130 /* FlickStreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2651E701D031E4700E57130 /* FlickStreamTests.swift */; };
 		D2651E7C1D031E4700E57130 /* FlickStreamUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2651E7B1D031E4700E57130 /* FlickStreamUITests.swift */; };
+		D2651E8B1D0324D200E57130 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2651E8A1D0324D200E57130 /* Constants.swift */; };
+		D2651E8C1D0324D200E57130 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2651E8A1D0324D200E57130 /* Constants.swift */; };
+		D2651E8D1D0324D200E57130 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2651E8A1D0324D200E57130 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,7 @@
 		D2651E771D031E4700E57130 /* FlickStreamUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlickStreamUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2651E7B1D031E4700E57130 /* FlickStreamUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickStreamUITests.swift; sourceTree = "<group>"; };
 		D2651E7D1D031E4700E57130 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2651E8A1D0324D200E57130 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E4F557C0C670108A9C400295 /* Pods-FlickStreamTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickStreamTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlickStreamTests/Pods-FlickStreamTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E950366C543310B3A7466F66 /* Pods-FlickStream.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickStream.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlickStream/Pods-FlickStream.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,6 +176,7 @@
 		D2651E891D03246D00E57130 /* CommonConstants */ = {
 			isa = PBXGroup;
 			children = (
+				D2651E8A1D0324D200E57130 /* Constants.swift */,
 			);
 			name = CommonConstants;
 			sourceTree = "<group>";
@@ -441,6 +446,7 @@
 				D2651E5B1D031E4700E57130 /* ViewController.swift in Sources */,
 				D2651E611D031E4700E57130 /* FlickStream.xcdatamodeld in Sources */,
 				D2651E591D031E4700E57130 /* AppDelegate.swift in Sources */,
+				D2651E8B1D0324D200E57130 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +455,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2651E711D031E4700E57130 /* FlickStreamTests.swift in Sources */,
+				D2651E8C1D0324D200E57130 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +464,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2651E7C1D031E4700E57130 /* FlickStreamUITests.swift in Sources */,
+				D2651E8D1D0324D200E57130 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
