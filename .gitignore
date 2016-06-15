@@ -6,6 +6,9 @@
 build/
 DerivedData/
 
+## Constants file
+FlickStream/Constants.swift
+
 ## Various settings
 *.pbxuser
 !default.pbxuser
