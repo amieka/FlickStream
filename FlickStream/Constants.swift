@@ -9,10 +9,10 @@
 import Foundation
 
 struct Constants {
-	
-	struct FlickrAPIKeys {
-		static let API_KEY = ""
-		static let API_SECRET = ""
+	struct FlickrAPI {
+		static let API_KEY = "<Your API key>"
+		static let API_SECRET = "<Your API secret>"
 	}
-	
 }
+
+
