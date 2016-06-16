@@ -26,6 +26,9 @@ struct FlickrAPIConstants {
 		static let PAYLOAD_FORMAT = "format"
 		static let NOJSON = "nojsoncallback"
 		static let PHOTO_ID = "photo_id"
+		static let RESPONSE_STAT = "stat"
+		static let RESPONSE_MESSAGE = "message"
+		static let RESPONSE_CODE = "code"
 	}
 	
 	// API spec for flickr.interestingness.getList
@@ -38,6 +41,8 @@ struct FlickrAPIConstants {
 		static let DATE_VALUE = ""
 		static let FORMAT = "json"
 		static let NOJSON = "1"
+		static let RESPONSE_MESSAGE_OK = "ok"
+		static let RESPONSE_MESSAGE_FAIL = "fail"
 	}
 	
 }

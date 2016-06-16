@@ -10,5 +10,7 @@ import UIKit
 import Foundation
 
 class FlickrAPIError: NSObject {
-
+	var stat : String?
+	var code : String?
+	var message : String?
 }

@@ -30,22 +30,19 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 		//print("collectionview frame \(collectionView?.frame.origin.x)")
 		// Do any additional setup after loading the view, typically from a nib.
 		typealias interesting = ([Interestingness]) -> (Void)
-		let p:interesting = {interestingness in
+		typealias apierror = (FlickrAPIError) -> (Void)
+		let successHandler:interesting = {interestingness in
 			self.interestingness = interestingness
 			dispatch_async(dispatch_get_main_queue(), {
 				self.collectionView?.reloadData()
 			})
 		}
 		
-		/*searchAPI.callAPI { (interestingness) -> () in
-			self.interestingness = interestingness
-			dispatch_async(dispatch_get_main_queue(), { 
-					self.collectionView?.reloadData()
-			})
-			
-		}*/
+		let errorHandler:apierror = { error in
+			// handle error here
+		}
 		
-		searchAPI.callAPI(p)
+		searchAPI.callAPI(successHandler, errorHandler: errorHandler)
 		
 		
 	}

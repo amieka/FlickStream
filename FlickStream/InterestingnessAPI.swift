@@ -11,7 +11,7 @@ import Foundation
 
 class InterestingnessAPI: NSObject {
 	let kAPI = FlickrAPIConstants.self
-	func callAPI(completionHandler:([Interestingness]) -> () )  {
+	func callAPI(completionHandler:([Interestingness]) -> (), errorHandler:(FlickrAPIError) -> () )  {
 		let parametersPair = [
 		
 			kAPI.FlickrAPIKeys.API_KEY : kAPI.FlickrAPIValues.API_VALUE,
@@ -50,11 +50,24 @@ class InterestingnessAPI: NSObject {
 			
 			let parsedResult: AnyObject!
 			var photoObjects = [Interestingness]()
+			let apiError = FlickrAPIError()
 			do {
 				parsedResult = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
-				let json = parsedResult["photos"] as! [String:AnyObject]
+				let stat = parsedResult[FlickrAPIConstants.FlickrAPIKeys.RESPONSE_STAT] as! String!
 				
-				for photo in json["photo"] as! [[String:AnyObject]] {
+				// API returned an error handle it
+				if stat ==  FlickrAPIConstants.FlickrAPIValues.RESPONSE_MESSAGE_FAIL {
+					apiError.stat = stat
+					apiError.code = parsedResult[FlickrAPIConstants.FlickrAPIKeys.RESPONSE_CODE] as! String!
+					apiError.message = parsedResult[FlickrAPIConstants.FlickrAPIKeys.RESPONSE_MESSAGE] as! String!
+					errorHandler(apiError)
+					return
+				}
+				
+				// Process each photo object
+				let photos = parsedResult["photos"] as! [String:AnyObject]
+				
+				for photo in photos["photo"] as! [[String:AnyObject]] {
 					let interestingness = Interestingness()
 					interestingness.setValuesForKeysWithDictionary(photo)
 					let staticPhotoUrl:NSURL = staticPhotoUrlFromParams(interestingness.farm as NSNumber! , server_id: interestingness.server as! String, id: interestingness.id as! String, secret: interestingness.secret as! String, type: "z")
