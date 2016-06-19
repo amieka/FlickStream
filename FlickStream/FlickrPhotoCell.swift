@@ -31,6 +31,17 @@ class FlickrPhotoCell: UICollectionViewCell {
 				}
 			}
 			
+			if let profilPhotoUrl = Photo?.profilePhotoUrl as NSURL! {
+				dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) { [unowned self ] in
+					let data = NSData.init(contentsOfURL: profilPhotoUrl)
+					dispatch_async(dispatch_get_main_queue()) {
+						if let imgData = data as NSData! {
+							self.profileImage.image = UIImage(data: imgData)
+						}
+					}
+				}
+			}
+			
 			// fetch the image description
 			
 			//let getPhotoSuccessHandler:
@@ -79,13 +90,9 @@ class FlickrPhotoCell: UICollectionViewCell {
 		return th
 	}()
 	
-	
-	
-	
-	
 	let thumbnailTitle:UILabel = {
 		let label = UILabel()
-		label.font = UIFont.boldSystemFontOfSize(16)
+		label.font = UIFont.boldSystemFontOfSize(12)
 		label.numberOfLines = 2
 		label.translatesAutoresizingMaskIntoConstraints = false
 		return label
@@ -121,17 +128,12 @@ class FlickrPhotoCell: UICollectionViewCell {
 		addSubview(thumbnailImage)
 		addSubview(thumbnailTitle)
 		addSubview(dividerLine)
-		
-		
-		// Adjust the positioning of title and detail label texts for each text
-		
-		
-		
-		// Add a divider line
+		addSubview(profileImage)
 		
 		thumbnailTitle.frame = CGRectMake(90, 0, frame.width, 40)
 		dividerLine.frame = CGRectMake(90, 90, frame.width - 10 , 1)
 		thumbnailImage.frame = CGRectMake(10, 10, 75, 75)
+		profileImage.frame = CGRectMake(frame.width - 40, 40, 30, 30)
 		
 		
 	}

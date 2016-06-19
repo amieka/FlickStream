@@ -71,10 +71,9 @@ class InterestingnessAPI: NSObject {
 				for photo in photos["photo"] as! [[String:AnyObject]] {
 					let interestingness = Interestingness()
 					interestingness.setValuesForKeysWithDictionary(photo)
-					let staticPhotoUrl:NSURL = staticPhotoUrlFromParams(interestingness.farm as NSNumber! , server_id: interestingness.server as! String, id: interestingness.id as! String, secret: interestingness.secret as! String, type: "z")
-					let thumbnailUrl:NSURL = staticPhotoUrlFromParams(interestingness.farm as NSNumber! , server_id: interestingness.server as! String, id: interestingness.id as! String, secret: interestingness.secret as! String, type: "s")
-					interestingness.staticPhotoUrl = staticPhotoUrl
-					interestingness.thumbNailUrl = thumbnailUrl
+					let iconfarm = "\(interestingness.iconfarm as! NSNumber)"
+					let profilePhotoUrl = staticProfilePhotoUrlFromParams(iconfarm, icon_server: interestingness.iconserver as! String, id: interestingness.owner as! String)
+					interestingness.profilePhotoUrl = profilePhotoUrl
 					photoObjects.append(interestingness)
 				}
 				

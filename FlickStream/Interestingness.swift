@@ -18,12 +18,13 @@ class Interestingness: NSObject {
 	var   secret: AnyObject?
 	var   server: AnyObject?
 	var    title: String?
-	var staticPhotoUrl: AnyObject?
-	var thumbNailUrl: AnyObject?
+	var profilePhotoUrl: NSURL?
 	var iconserver: AnyObject?
 	var iconfarm: AnyObject?
 	var url_s: String?
+	var url_m: String?
 	var width_s: NSNumber?
 	var height_s: NSNumber?
-	
+	var width_m: NSNumber?
+	var height_m: NSNumber?
 }
