@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 
 class FlickrPhotoCell: UICollectionViewCell {
-	
+	var estimatedCellRects = [CGRect]()
 	var Photo:Interestingness? {
 		didSet {
 			
@@ -20,11 +20,13 @@ class FlickrPhotoCell: UICollectionViewCell {
 			}
 			
 			// fetch the thumbnail image
-			if let thumbnailUrl = Photo?.thumbNailUrl {
+			if let thumbnailUrl = Photo?.url_s as String! {
 				dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) { [unowned self ] in
-					let data = NSData.init(contentsOfURL: thumbnailUrl as! NSURL)
+					let data = NSData.init(contentsOfURL: NSURL(string: thumbnailUrl)!)
 					dispatch_async(dispatch_get_main_queue()) {
-						self.thumbnailImage.image = UIImage(data: data!)
+						if let imgData = data as NSData! {
+							self.thumbnailImage.image = UIImage(data: imgData)
+						}
 					}
 				}
 			}
@@ -38,21 +40,21 @@ class FlickrPhotoCell: UICollectionViewCell {
 				let photoSuccessHandler:PhotoInfoType = {
 					photoInfo in
 					//print("description: \(photoInfo.photo?.edescription)")
-					dispatch_async(dispatch_get_main_queue(), {
+					dispatch_async(dispatch_get_main_queue(), { [unowned self] in
 						self.photoDetail.text = photoInfo.photo?.edescription as String!
+						let estimatedLabelRect = NSString(string: self.thumbnailTitle.text!).boundingRectWithSize(CGSizeMake(self.frame.size.width, 1000), options: NSStringDrawingOptions.UsesFontLeading.union(NSStringDrawingOptions.UsesLineFragmentOrigin), attributes: [NSFontAttributeName: UIFont.systemFontOfSize(14)], context: nil)
+						self.estimatedCellRects.append(estimatedLabelRect)
 					})
-					
-					
 				}
+				
 				let photoErrorHandler:PhotoInfoError = {
 					photoInfoError in
 					print("getPhotoInfo error handler")
-					
 				}
 				
 				GetPhotoInfoAPI.callWithPhotoId(id as! String, completionHandler: photoSuccessHandler, errorHandler: photoErrorHandler)
 				
-				print("description\(id)")
+				//print("description\(id)")
 			}
 		}
 	}
@@ -68,9 +70,22 @@ class FlickrPhotoCell: UICollectionViewCell {
 		return th
 	}()
 	
+	let profileImage:UIImageView = {
+		let th = UIImageView()
+		th.contentMode = .ScaleAspectFill
+		th.layer.cornerRadius = 16
+		th.layer.masksToBounds = true
+		th.translatesAutoresizingMaskIntoConstraints = false
+		return th
+	}()
+	
+	
+	
+	
+	
 	let thumbnailTitle:UILabel = {
 		let label = UILabel()
-		label.font = UIFont.systemFontOfSize(16)
+		label.font = UIFont.boldSystemFontOfSize(16)
 		label.numberOfLines = 2
 		label.translatesAutoresizingMaskIntoConstraints = false
 		return label
@@ -78,14 +93,7 @@ class FlickrPhotoCell: UICollectionViewCell {
 	
 	let photoDetail:UILabel = {
 		let label = UILabel()
-		label.font = UIFont.systemFontOfSize(12)
-		label.translatesAutoresizingMaskIntoConstraints = false
-		return label
-	}()
-	
-	let thumbnailDescription:UILabel = {
-		let label = UILabel()
-		label.font = UIFont.systemFontOfSize(14)
+		label.font = UIFont.monospacedDigitSystemFontOfSize(13, weight: 300)
 		label.numberOfLines = 2
 		label.translatesAutoresizingMaskIntoConstraints = false
 		return label
@@ -100,7 +108,6 @@ class FlickrPhotoCell: UICollectionViewCell {
 	
 	let subviewConstraints = [NSLayoutConstraint]()
 	
-	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		setUpSubViews()
@@ -113,25 +120,20 @@ class FlickrPhotoCell: UICollectionViewCell {
 	func setUpSubViews()  {
 		addSubview(thumbnailImage)
 		addSubview(thumbnailTitle)
-		//addSubview(dividerLine)
-		addSubview(photoDetail)
-		// title
-		addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-90-[v0(200)]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": thumbnailTitle]))
-		addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-5-[v0(40)]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": thumbnailTitle]))
-		// image
-		addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-10-[v0(75)]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": thumbnailImage]))
-		addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-10-[v0(75)]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": thumbnailImage]))
-		
-		// add constraints for photoDetail
-		addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-90-[v0(200)]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": photoDetail]))
-		addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-10-[v0(75)]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": photoDetail]))
+		addSubview(dividerLine)
 		
 		
-		//thumbnailTitle.frame = CGRectMake(90, 0, frame.width, 40)
-		//dividerLineView.frame = CGRectMake(90, 90, frame.width - 10 , 1)
-		//thumbnailImageView.frame = CGRectMake(10, 10, 75, 75)
-		self.layer.borderWidth = 1
-		self.layer.borderColor = UIColor.blueColor().CGColor
+		// Adjust the positioning of title and detail label texts for each text
+		
+		
+		
+		// Add a divider line
+		
+		thumbnailTitle.frame = CGRectMake(90, 0, frame.width, 40)
+		dividerLine.frame = CGRectMake(90, 90, frame.width - 10 , 1)
+		thumbnailImage.frame = CGRectMake(10, 10, 75, 75)
+		
+		
 	}
 	
 	

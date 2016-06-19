@@ -20,4 +20,10 @@ class Interestingness: NSObject {
 	var    title: String?
 	var staticPhotoUrl: AnyObject?
 	var thumbNailUrl: AnyObject?
+	var iconserver: AnyObject?
+	var iconfarm: AnyObject?
+	var url_s: String?
+	var width_s: NSNumber?
+	var height_s: NSNumber?
+	
 }

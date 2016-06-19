@@ -19,7 +19,8 @@ class InterestingnessAPI: NSObject {
 			kAPI.FlickrAPIKeys.NOJSON : kAPI.FlickrAPIValues.NOJSON,
 			kAPI.FlickrAPIKeys.PAGE: kAPI.FlickrAPIValues.PAGE_VALUE,
 			kAPI.FlickrAPIKeys.PER_PAGE: kAPI.FlickrAPIValues.PER_PAGE_VALUE,
-			kAPI.FlickrAPIKeys.PAYLOAD_FORMAT: kAPI.FlickrAPIValues.FORMAT
+			kAPI.FlickrAPIKeys.PAYLOAD_FORMAT: kAPI.FlickrAPIValues.FORMAT,
+			kAPI.FlickrAPIKeys.EXTRAS : "\(kAPI.FlickrAPIValues.EXTRAS_ICON_SERVER), \(kAPI.FlickrAPIValues.EXTRAS_URL_S)"
 		]
 		
 		print("API parameters,  \(parametersPair)")

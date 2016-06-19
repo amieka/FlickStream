@@ -29,6 +29,7 @@ struct FlickrAPIConstants {
 		static let RESPONSE_STAT = "stat"
 		static let RESPONSE_MESSAGE = "message"
 		static let RESPONSE_CODE = "code"
+		static let EXTRAS = "extras"
 	}
 	
 	// API spec for flickr.interestingness.getList
@@ -43,6 +44,8 @@ struct FlickrAPIConstants {
 		static let NOJSON = "1"
 		static let RESPONSE_MESSAGE_OK = "ok"
 		static let RESPONSE_MESSAGE_FAIL = "fail"
+		static let EXTRAS_URL_S = "url_s"
+		static let EXTRAS_ICON_SERVER = "icon_server"
 	}
 	
 }

@@ -36,20 +36,16 @@ class ViewController: UIViewController {
 		
 		let errorHandler:apierror = { error in
 			// handle error here
+			// show some kind of uinotification 
 		}
 		
 		searchAPI.callAPI(successHandler, errorHandler: errorHandler)
-		
-		
 	}
 
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
 	}
 	
-	
-
 }
 
 

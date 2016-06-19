@@ -33,4 +33,5 @@ class Photo: NSObject {
 	var people: AnyObject?
 	var tags: AnyObject?
 	var urls: AnyObject?
+	
 }

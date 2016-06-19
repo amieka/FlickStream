@@ -53,6 +53,9 @@
 		D2CB80CB1D0DD58A000F6013 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CB80CA1D0DD58A000F6013 /* Photo.swift */; };
 		D2CB80CC1D0DD58A000F6013 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CB80CA1D0DD58A000F6013 /* Photo.swift */; };
 		D2CB80CD1D0DD58A000F6013 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CB80CA1D0DD58A000F6013 /* Photo.swift */; };
+		D2CB80D01D13A447000F6013 /* InterestingnessCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CB80CF1D13A447000F6013 /* InterestingnessCollectionView.swift */; };
+		D2CB80D11D13A447000F6013 /* InterestingnessCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CB80CF1D13A447000F6013 /* InterestingnessCollectionView.swift */; };
+		D2CB80D21D13A447000F6013 /* InterestingnessCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CB80CF1D13A447000F6013 /* InterestingnessCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +108,7 @@
 		D2CB80C21D0D099F000F6013 /* PhotoInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoInfo.swift; sourceTree = "<group>"; };
 		D2CB80C61D0DD3E2000F6013 /* Owner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
 		D2CB80CA1D0DD58A000F6013 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		D2CB80CF1D13A447000F6013 /* InterestingnessCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestingnessCollectionView.swift; sourceTree = "<group>"; };
 		E4F557C0C670108A9C400295 /* Pods-FlickStreamTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickStreamTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlickStreamTests/Pods-FlickStreamTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E950366C543310B3A7466F66 /* Pods-FlickStream.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickStream.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlickStream/Pods-FlickStream.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -285,6 +289,7 @@
 		D2CB80CE1D11147E000F6013 /* CollectionViews */ = {
 			isa = PBXGroup;
 			children = (
+				D2CB80CF1D13A447000F6013 /* InterestingnessCollectionView.swift */,
 			);
 			name = CollectionViews;
 			sourceTree = "<group>";
@@ -560,6 +565,7 @@
 				D20F90301D0351160007D2E4 /* Interestingness.swift in Sources */,
 				D2651E591D031E4700E57130 /* AppDelegate.swift in Sources */,
 				D2CB80CB1D0DD58A000F6013 /* Photo.swift in Sources */,
+				D2CB80D01D13A447000F6013 /* InterestingnessCollectionView.swift in Sources */,
 				D2CB80C71D0DD3E2000F6013 /* Owner.swift in Sources */,
 				D2CB80BF1D0D0947000F6013 /* GetPhotoInfoAPI.swift in Sources */,
 				D2651E8B1D0324D200E57130 /* Constants.swift in Sources */,
@@ -572,6 +578,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2CB80D11D13A447000F6013 /* InterestingnessCollectionView.swift in Sources */,
 				D2CB80C01D0D0947000F6013 /* GetPhotoInfoAPI.swift in Sources */,
 				D2CB80C81D0DD3E2000F6013 /* Owner.swift in Sources */,
 				D2CB80BC1D0D0915000F6013 /* FlickrAPIError.swift in Sources */,
@@ -592,6 +599,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2CB80D21D13A447000F6013 /* InterestingnessCollectionView.swift in Sources */,
 				D2CB80C11D0D0947000F6013 /* GetPhotoInfoAPI.swift in Sources */,
 				D2CB80C91D0DD3E2000F6013 /* Owner.swift in Sources */,
 				D2CB80BD1D0D0915000F6013 /* FlickrAPIError.swift in Sources */,

@@ -43,7 +43,6 @@ class InterestingnessCollectionView: UICollectionView , UICollectionViewDataSour
 	}
 	
 	func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-		
 		return CGSizeMake(self.frame.width, 100)
 	}
 	

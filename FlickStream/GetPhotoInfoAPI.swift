@@ -41,12 +41,22 @@ class GetPhotoInfoAPI: NSObject {
 			
 			let parsedResults: AnyObject!
 			let photoInfo = PhotoInfo()
+			let apiError = FlickrAPIError()
 			do {
 				
 				parsedResults = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
+				
+				let stat = parsedResults[FlickrAPIConstants.FlickrAPIKeys.RESPONSE_STAT] as! String!
+				if stat == FlickrAPIConstants.FlickrAPIValues.RESPONSE_MESSAGE_FAIL {
+					apiError.stat = stat
+					apiError.message = parsedResults[FlickrAPIConstants.FlickrAPIKeys.RESPONSE_MESSAGE] as! String!
+					apiError.code = parsedResults[FlickrAPIConstants.FlickrAPIKeys.RESPONSE_CODE] as! String!
+					errorHandler(apiError)
+					return
+				}
+				
 				let photo = parsedResults["photo"] as! [String:AnyObject]
 				let description = photo["description"] as! [String:AnyObject]
-				
 				photoInfo.photo = Photo()
 				photoInfo.photo?.edescription = description["_content"] as! String!
 				photoInfo.stat = parsedResults["stat"] as! String!

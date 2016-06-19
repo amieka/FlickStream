@@ -23,6 +23,17 @@ func urlBuilder(urlParams: [String:AnyObject]) -> NSURL {
 
 func staticPhotoUrlFromParams(farm_id:NSNumber, server_id:String, id:String, secret:String, type:String) -> NSURL {
 	// https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}_[mstzb].jpg
+	// http://farm{icon-farm}.staticflickr.com/{icon-server}/buddyicons/{nsid}.jpg
+	let staticPhotoUrlComponents = NSURLComponents()
+	staticPhotoUrlComponents.scheme = FlickrAPIConstants.API_SCHEME
+	staticPhotoUrlComponents.host = String(format: "farm%@.%@", farm_id, FlickrAPIConstants.STATIC_FLICKR)
+	staticPhotoUrlComponents.path = String(format: "/%@/%@_%@_%@.jpg", server_id, id, secret, type)
+	return staticPhotoUrlComponents.URL!
+}
+
+func staticProfilePhotoUrlFromParams(farm_id:NSNumber, server_id:String, id:String, secret:String, type:String) -> NSURL {
+	// https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}_[mstzb].jpg
+	// http://farm{icon-farm}.staticflickr.com/{icon-server}/buddyicons/{nsid}.jpg
 	let staticPhotoUrlComponents = NSURLComponents()
 	staticPhotoUrlComponents.scheme = FlickrAPIConstants.API_SCHEME
 	staticPhotoUrlComponents.host = String(format: "farm%@.%@", farm_id, FlickrAPIConstants.STATIC_FLICKR)
