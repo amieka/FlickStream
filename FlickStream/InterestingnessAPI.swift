@@ -59,8 +59,8 @@ class InterestingnessAPI: NSObject {
 				// API returned an error handle it
 				if stat ==  FlickrAPIConstants.FlickrAPIValues.RESPONSE_MESSAGE_FAIL {
 					apiError.stat = stat
-					apiError.code = parsedResult[FlickrAPIConstants.FlickrAPIKeys.RESPONSE_CODE] as! String!
-					apiError.message = parsedResult[FlickrAPIConstants.FlickrAPIKeys.RESPONSE_MESSAGE] as! String!
+					apiError.code = parsedResult[FlickrAPIConstants.FlickrAPIKeys.RESPONSE_CODE] as? NSNumber!
+					apiError.message = parsedResult[FlickrAPIConstants.FlickrAPIKeys.RESPONSE_MESSAGE] as? String!
 					errorHandler(apiError)
 					return
 				}

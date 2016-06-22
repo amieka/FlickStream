@@ -10,10 +10,14 @@ import Foundation
 
 class Owner: NSObject {
 	var nsid:String?
-	var username:String?
-	var realname:String?
-	var location:String?
+	var id: String?
+	var ispro: AnyObject?
+	var can_buy_pro: AnyObject?
+	var path_alias: AnyObject?
+	var has_status: AnyObject?
+	var expire: NSNumber?
+	var username:[String:AnyObject]?
+	var realname: [String:AnyObject]?
 	var iconserver:String?
-	var iconfarm:NSNumber?
-	var path_alias:AnyObject?
+	var iconfarm:AnyObject?
 }

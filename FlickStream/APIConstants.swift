@@ -26,6 +26,7 @@ struct FlickrAPIConstants {
 		static let PAYLOAD_FORMAT = "format"
 		static let NOJSON = "nojsoncallback"
 		static let PHOTO_ID = "photo_id"
+		static let USER_ID = "user_id"
 		static let RESPONSE_STAT = "stat"
 		static let RESPONSE_MESSAGE = "message"
 		static let RESPONSE_CODE = "code"
@@ -37,6 +38,7 @@ struct FlickrAPIConstants {
 		static let API_VALUE = Constants.FlickrAPI.API_KEY
 		static let INTERESTINGNESS_METHOD = "flickr.interestingness.getList"
 		static let GET_INFO_METHOD = "flickr.photos.getInfo"
+		static let GET_PEOPLE_INFO = "flickr.people.getInfo"
 		static let PER_PAGE_VALUE = "10"
 		static let PAGE_VALUE = "1"
 		static let DATE_VALUE = ""

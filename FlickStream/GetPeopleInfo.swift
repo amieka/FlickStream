@@ -1,32 +1,29 @@
 //
-//  GetPhotoInfoAPI.swift
+//  GetPeopleInfo.swift
 //  FlickStream
 //
-//  Created by Arunoday Sarkar on 6/11/16.
+//  Created by Arunoday Sarkar on 6/19/16.
 //  Copyright © 2016 Sark Software LLC. All rights reserved.
 //
 
-import UIKit
 import Foundation
 
-class GetPhotoInfoAPI: NSObject {
+class GetPeopleInfo: NSObject {
 	static let kAPI = FlickrAPIConstants.self
-	static func callWithPhotoId(id:String, completionHandler:(PhotoInfo) -> (), errorHandler:(FlickrAPIError) -> () ) {
-		
+	static func callAPIWithId(userid:String, completionHandler:(Owner) -> (), errorHandler:(FlickrAPIError) -> ()) {
+		// https://api.flickr.com/services/rest/?method=flickr.people.getInfo&api_key=1f96d6cb44a1b19ff6922f9d914f7875&user_id=110870569%40N08&format=json&nojsoncallback=1
 		let parametersPair = [
 			
 			kAPI.FlickrAPIKeys.API_KEY :kAPI.FlickrAPIValues.API_VALUE,
-			kAPI.FlickrAPIKeys.API_METHOD : kAPI.FlickrAPIValues.GET_INFO_METHOD,
+			kAPI.FlickrAPIKeys.API_METHOD : kAPI.FlickrAPIValues.GET_PEOPLE_INFO,
 			kAPI.FlickrAPIKeys.NOJSON : kAPI.FlickrAPIValues.NOJSON,
 			kAPI.FlickrAPIKeys.PAYLOAD_FORMAT: kAPI.FlickrAPIValues.FORMAT,
-			kAPI.FlickrAPIKeys.PHOTO_ID: id
+			kAPI.FlickrAPIKeys.USER_ID: userid
 		]
 		
 		let apiUrl = urlBuilder(parametersPair)
 		let urlSession = NSURLSession.sharedSession()
 		let request = NSURLRequest(URL: apiUrl)
-		
-		//print("getInfo request \(request)")
 		
 		let task = urlSession.dataTaskWithRequest(request) { (data, response, error) in
 			guard(error == nil) else {
@@ -40,32 +37,22 @@ class GetPhotoInfoAPI: NSObject {
 			}
 			
 			let parsedResults: AnyObject!
-			let photoInfo = PhotoInfo()
+			let owner = Owner()
 			let apiError = FlickrAPIError()
 			do {
 				
 				parsedResults = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
-				
 				let stat = parsedResults[FlickrAPIConstants.FlickrAPIKeys.RESPONSE_STAT] as! String!
 				if stat == FlickrAPIConstants.FlickrAPIValues.RESPONSE_MESSAGE_FAIL {
 					apiError.stat = stat
 					apiError.message = parsedResults[FlickrAPIConstants.FlickrAPIKeys.RESPONSE_MESSAGE] as! String!
-					apiError.code = parsedResults[FlickrAPIConstants.FlickrAPIKeys.RESPONSE_CODE] as? NSNumber!
+					apiError.code = parsedResults[FlickrAPIConstants.FlickrAPIKeys.RESPONSE_CODE] as? NSNumber
 					errorHandler(apiError)
 					return
 				}
-				
-				let photo = parsedResults["photo"] as! [String:AnyObject]
-				let description = photo["description"] as! [String:AnyObject]
-				photoInfo.photo = Photo()
-				photoInfo.photo?.owner = Owner()
-				photoInfo.setValuesForKeysWithDictionary(photo)
-				photoInfo.photo?.edescription = description["_content"] as! String!
-				photoInfo.stat = parsedResults["stat"] as! String!
-				
-				completionHandler(photoInfo)
-				
-				
+				//owner.setValuesForKeysWithDictionary(parsedResults["person"] as! [String:AnyObject])
+				owner.safe_setValuesForKeysWithDictionary(parsedResults["person"] as! [String:AnyObject])
+				completionHandler(owner)
 			} catch {
 				print("There was an error parsing data as json")
 			}
@@ -73,7 +60,5 @@ class GetPhotoInfoAPI: NSObject {
 		}
 		
 		task.resume()
-		
 	}
-
 }

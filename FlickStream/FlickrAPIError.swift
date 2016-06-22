@@ -11,6 +11,6 @@ import Foundation
 
 class FlickrAPIError: NSObject {
 	var stat : String?
-	var code : String?
+	var code : NSNumber?
 	var message : String?
 }

@@ -30,7 +30,7 @@ class InterestingnessCollectionView: UICollectionView , UICollectionViewDataSour
 		let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellId, forIndexPath: indexPath) as! FlickrPhotoCell
 		
 		// Set the interestingness info to the Cell and return
-		cell.Photo = interestingness?[indexPath.item]
+		cell.PInterestingness = interestingness?[indexPath.item]
 		
 		return cell
 	}
