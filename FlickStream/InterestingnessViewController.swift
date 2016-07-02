@@ -1,25 +1,25 @@
 //
-//  ViewController.swift
+//  InterestingnessViewController.swift
 //  FlickStream
 //
-//  Created by Arunoday Sarkar on 6/4/16.
+//  Created by Arunoday Sarkar on 7/1/16.
 //  Copyright © 2016 Sark Software LLC. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-class ViewController: UIViewController {
-
-	
+class InterestingnessViewController: UIViewController {
 	let searchAPI = InterestingnessAPI()
 	var interestingness:[Interestingness]?
 	var collectionView:UICollectionView?
 	var interestingnessCollectionView: InterestingnessCollectionView?
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(navigateToInterestingnessDetailView), name: Constants.Notifications.INTERESTINGNESS_DETAIL_VIEW, object: nil)
+
 		let flowLayOut = UICollectionViewFlowLayout()
 		interestingnessCollectionView = InterestingnessCollectionView(frame: self.view.frame, collectionViewLayout: flowLayOut)
+		interestingnessCollectionView?.interestingnesscellSelectedDelegate = self
 		self.view.addSubview(interestingnessCollectionView as UICollectionView!)
 		
 		self.navigationController?.title = "Trending"
@@ -31,28 +31,28 @@ class ViewController: UIViewController {
 			//self.interestingness = interestingness
 			dispatch_async(dispatch_get_main_queue(), { [unowned self] in
 				self.interestingnessCollectionView?.refreshCollectionView(interestingness)
-			})
+				})
 		}
 		
 		let errorHandler:apierror = { error in
 			// handle error here
-			// show some kind of uinotification 
+			// show some kind of uinotification
 		}
 		
 		searchAPI.callAPI(successHandler, errorHandler: errorHandler)
 	}
-
+	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 	}
 	
-	func navigateToInterestingnessDetailView()  {
-		
-	}
-	
+
 }
 
-
-
-
-
+extension InterestingnessViewController: InterestingnessCellSelectedDelegate {
+	func didSelectInterestingnessCell(interestingnessDetail:Interestingness) {
+		self.presentViewController(InterestingnessDetailViewController(), animated: true) { 
+			
+		}
+	}
+}

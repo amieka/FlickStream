@@ -9,10 +9,15 @@
 import Foundation
 import UIKit
 
+protocol InterestingnessCellSelectedDelegate {
+	func didSelectInterestingnessCell(interestingness:Interestingness) -> Void
+}
+
 class InterestingnessCollectionView: UICollectionView , UICollectionViewDataSource, UICollectionViewDelegate {
 	
 	var interestingness:[Interestingness]?
 	let cellId = "CellId"
+	var interestingnesscellSelectedDelegate:InterestingnessCellSelectedDelegate?
 	
 	override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
 		super.init(frame: frame, collectionViewLayout: layout)
@@ -49,7 +54,16 @@ class InterestingnessCollectionView: UICollectionView , UICollectionViewDataSour
 	func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
 		return UIEdgeInsetsMake(0, 14, 0, 14)
 	}
+	
+	func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+		//let cell = collectionView.cellForItemAtIndexPath(indexPath) as! FlickrPhotoCell
+		let interestingnessDetail = interestingness?[indexPath.item] as Interestingness!
+		self.interestingnesscellSelectedDelegate?.didSelectInterestingnessCell(interestingnessDetail)
+		
+	}
 }
+
+
 
 extension InterestingnessCollectionView {
 	func refreshCollectionView(interestingness:[Interestingness])  {
