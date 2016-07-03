@@ -77,6 +77,9 @@
 		D2CB80F01D276C0E000F6013 /* InterestingnessDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CB80EF1D276C0E000F6013 /* InterestingnessDetailViewController.swift */; };
 		D2CB80F11D276C0E000F6013 /* InterestingnessDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CB80EF1D276C0E000F6013 /* InterestingnessDetailViewController.swift */; };
 		D2CB80F21D276C0E000F6013 /* InterestingnessDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CB80EF1D276C0E000F6013 /* InterestingnessDetailViewController.swift */; };
+		D2CB80F41D299846000F6013 /* InterestingnessCellDetailPushAnimationTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CB80F31D299846000F6013 /* InterestingnessCellDetailPushAnimationTransition.swift */; };
+		D2CB80F51D299846000F6013 /* InterestingnessCellDetailPushAnimationTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CB80F31D299846000F6013 /* InterestingnessCellDetailPushAnimationTransition.swift */; };
+		D2CB80F61D299846000F6013 /* InterestingnessCellDetailPushAnimationTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CB80F31D299846000F6013 /* InterestingnessCellDetailPushAnimationTransition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +140,7 @@
 		D2CB80E51D177549000F6013 /* NSObject+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSObject+Extensions.swift"; sourceTree = "<group>"; };
 		D2CB80EB1D2765A6000F6013 /* InterestingnessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestingnessViewController.swift; sourceTree = "<group>"; };
 		D2CB80EF1D276C0E000F6013 /* InterestingnessDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestingnessDetailViewController.swift; sourceTree = "<group>"; };
+		D2CB80F31D299846000F6013 /* InterestingnessCellDetailPushAnimationTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestingnessCellDetailPushAnimationTransition.swift; sourceTree = "<group>"; };
 		E4F557C0C670108A9C400295 /* Pods-FlickStreamTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickStreamTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlickStreamTests/Pods-FlickStreamTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E950366C543310B3A7466F66 /* Pods-FlickStream.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickStream.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlickStream/Pods-FlickStream.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -347,6 +351,7 @@
 		D2CB80E91D275D44000F6013 /* Transitions */ = {
 			isa = PBXGroup;
 			children = (
+				D2CB80F31D299846000F6013 /* InterestingnessCellDetailPushAnimationTransition.swift */,
 			);
 			name = Transitions;
 			sourceTree = "<group>";
@@ -642,6 +647,7 @@
 				D2CB80C71D0DD3E2000F6013 /* Owner.swift in Sources */,
 				D2CB80E11D1722EE000F6013 /* GetPeopleInfo.swift in Sources */,
 				D2CB80BF1D0D0947000F6013 /* GetPhotoInfoAPI.swift in Sources */,
+				D2CB80F41D299846000F6013 /* InterestingnessCellDetailPushAnimationTransition.swift in Sources */,
 				D2651E8B1D0324D200E57130 /* Constants.swift in Sources */,
 				D2CB80B71D0D029C000F6013 /* EventBroker.swift in Sources */,
 				D2CB80BB1D0D0915000F6013 /* FlickrAPIError.swift in Sources */,
@@ -668,6 +674,7 @@
 				D2651E8C1D0324D200E57130 /* Constants.swift in Sources */,
 				D20F90311D0351160007D2E4 /* Interestingness.swift in Sources */,
 				D2CB80C41D0D099F000F6013 /* PhotoInfo.swift in Sources */,
+				D2CB80F51D299846000F6013 /* InterestingnessCellDetailPushAnimationTransition.swift in Sources */,
 				D2651E901D0329C800E57130 /* APIConstants.swift in Sources */,
 				D2CB80F11D276C0E000F6013 /* InterestingnessDetailViewController.swift in Sources */,
 				D2651E951D0338CF00E57130 /* FlickrAPIUrlBuilder.swift in Sources */,
@@ -696,6 +703,7 @@
 				D2651E8D1D0324D200E57130 /* Constants.swift in Sources */,
 				D20F90321D0351160007D2E4 /* Interestingness.swift in Sources */,
 				D2CB80C51D0D099F000F6013 /* PhotoInfo.swift in Sources */,
+				D2CB80F61D299846000F6013 /* InterestingnessCellDetailPushAnimationTransition.swift in Sources */,
 				D2651E911D0329C800E57130 /* APIConstants.swift in Sources */,
 				D2CB80F21D276C0E000F6013 /* InterestingnessDetailViewController.swift in Sources */,
 				D2651E961D0338CF00E57130 /* FlickrAPIUrlBuilder.swift in Sources */,

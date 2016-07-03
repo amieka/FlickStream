@@ -56,10 +56,8 @@ class InterestingnessCollectionView: UICollectionView , UICollectionViewDataSour
 	}
 	
 	func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-		//let cell = collectionView.cellForItemAtIndexPath(indexPath) as! FlickrPhotoCell
 		let interestingnessDetail = interestingness?[indexPath.item] as Interestingness!
 		self.interestingnesscellSelectedDelegate?.didSelectInterestingnessCell(interestingnessDetail)
-		
 	}
 }
 

@@ -9,7 +9,8 @@
 import Foundation
 import UIKit
 
-class InterestingnessViewController: UIViewController {
+class InterestingnessViewController: UIViewController, UINavigationControllerDelegate {
+	let customNavigationAnimationController = InterestingnessCellDetailPushAnimationTransition()
 	let searchAPI = InterestingnessAPI()
 	var interestingness:[Interestingness]?
 	var collectionView:UICollectionView?
@@ -22,9 +23,9 @@ class InterestingnessViewController: UIViewController {
 		interestingnessCollectionView?.interestingnesscellSelectedDelegate = self
 		self.view.addSubview(interestingnessCollectionView as UICollectionView!)
 		
-		self.navigationController?.title = "Trending"
-		//print("collectionview frame \(collectionView?.frame.origin.x)")
-		// Do any additional setup after loading the view, typically from a nib.
+		self.navigationController?.navigationItem.title = "Trending"
+		self.navigationController?.delegate = self
+
 		typealias interesting = ([Interestingness]) -> (Void)
 		typealias apierror = (FlickrAPIError) -> (Void)
 		let successHandler:interesting = {interestingness in
@@ -46,13 +47,18 @@ class InterestingnessViewController: UIViewController {
 		super.didReceiveMemoryWarning()
 	}
 	
+	func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+		customNavigationAnimationController.reverse = operation == .Pop
+		return customNavigationAnimationController
+	}
+	
 
 }
 
 extension InterestingnessViewController: InterestingnessCellSelectedDelegate {
+	
 	func didSelectInterestingnessCell(interestingnessDetail:Interestingness) {
-		self.presentViewController(InterestingnessDetailViewController(), animated: true) { 
-			
-		}
+		self.navigationController?.pushViewController(InterestingnessDetailViewController(), animated: true)
+		
 	}
 }
