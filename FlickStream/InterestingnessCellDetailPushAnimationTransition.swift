@@ -16,44 +16,32 @@ class InterestingnessCellDetailPushAnimationTransition: NSObject , UIViewControl
 	}
 	
 	func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-		let containerView = transitionContext.containerView()
-		let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
 		let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
-		let toView = toViewController.view
-		let fromView = fromViewController.view
-		let direction: CGFloat = reverse ? -1 : 1
-		let const: CGFloat = -0.005
+		let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
+		let finalFrameForVC = transitionContext.finalFrameForViewController(toViewController)
 		
-		toView.layer.anchorPoint = CGPointMake(direction == 1 ? 0 : 1, 0.5)
-		fromView.layer.anchorPoint = CGPointMake(direction == 1 ? 1 : 0, 0.5)
+		print("final frame \(finalFrameForVC)")
+		let containerView = transitionContext.containerView()
+		toViewController.view.frame = finalFrameForVC
+		toViewController.view.alpha = 0.5
+		containerView?.addSubview(toViewController.view)
+		containerView?.sendSubviewToBack(toViewController.view)
 		
-		var viewFromTransform: CATransform3D = CATransform3DMakeRotation(direction * CGFloat(M_PI_2), 0.0, 1.0, 0.0)
-		var viewToTransform: CATransform3D = CATransform3DMakeRotation(-direction * CGFloat(M_PI_2), 0.0, 1.0, 0.0)
-		viewFromTransform.m34 = const
-		viewToTransform.m34 = const
+		let snapshotView = fromViewController.view.snapshotViewAfterScreenUpdates(false)
+		snapshotView.frame = fromViewController.view.frame
+		containerView?.addSubview(snapshotView)
 		
-		containerView!.transform = CGAffineTransformMakeTranslation(direction * containerView!.frame.size.width / 2.0, 0)
-		toView.layer.transform = viewToTransform
-		containerView!.addSubview(toView)
+		fromViewController.view.removeFromSuperview()
 		
 		UIView.animateWithDuration(transitionDuration(transitionContext), animations: {
-			containerView!.transform = CGAffineTransformMakeTranslation(-direction * containerView!.frame.size.width / 2.0, 0)
-			fromView.layer.transform = viewFromTransform
-			toView.layer.transform = CATransform3DIdentity
+			snapshotView.frame = CGRectInset(fromViewController.view.frame, fromViewController.view.frame.size.width / 2, fromViewController.view.frame.size.height / 2)
+			toViewController.view.alpha = 1.0
+			let toTransform = CGAffineTransformIdentity
+			toViewController.view.transform = CGAffineTransformScale(toTransform, 0, 0)
 			}, completion: {
 				finished in
-				containerView!.transform = CGAffineTransformIdentity
-				fromView.layer.transform = CATransform3DIdentity
-				toView.layer.transform = CATransform3DIdentity
-				fromView.layer.anchorPoint = CGPointMake(0.5, 0.5)
-				toView.layer.anchorPoint = CGPointMake(0.5, 0.5)
-    
-				if (transitionContext.transitionWasCancelled()) {
-					toView.removeFromSuperview()
-				} else {
-					fromView.removeFromSuperview()
-				}
-				transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
+				snapshotView.removeFromSuperview()
+				transitionContext.completeTransition(true)
 		})
 	}
 

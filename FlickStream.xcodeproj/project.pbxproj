@@ -13,6 +13,9 @@
 		D20F90301D0351160007D2E4 /* Interestingness.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20F902F1D0351160007D2E4 /* Interestingness.swift */; };
 		D20F90311D0351160007D2E4 /* Interestingness.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20F902F1D0351160007D2E4 /* Interestingness.swift */; };
 		D20F90321D0351160007D2E4 /* Interestingness.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20F902F1D0351160007D2E4 /* Interestingness.swift */; };
+		D22BFB401D32B226005635F8 /* PhotoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22BFB3F1D32B226005635F8 /* PhotoDetailView.swift */; };
+		D22BFB411D32B226005635F8 /* PhotoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22BFB3F1D32B226005635F8 /* PhotoDetailView.swift */; };
+		D22BFB421D32B226005635F8 /* PhotoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22BFB3F1D32B226005635F8 /* PhotoDetailView.swift */; };
 		D2651E591D031E4700E57130 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2651E581D031E4700E57130 /* AppDelegate.swift */; };
 		D2651E5B1D031E4700E57130 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2651E5A1D031E4700E57130 /* ViewController.swift */; };
 		D2651E611D031E4700E57130 /* FlickStream.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D2651E5F1D031E4700E57130 /* FlickStream.xcdatamodeld */; };
@@ -108,6 +111,7 @@
 		8ECE438818770AB92A162488 /* Pods-FlickStream.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickStream.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlickStream/Pods-FlickStream.debug.xcconfig"; sourceTree = "<group>"; };
 		CE9BCAC210140C6A6FFCFCA4 /* Pods_FlickStream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlickStream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D20F902F1D0351160007D2E4 /* Interestingness.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interestingness.swift; sourceTree = "<group>"; };
+		D22BFB3F1D32B226005635F8 /* PhotoDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoDetailView.swift; sourceTree = "<group>"; };
 		D2651E551D031E4600E57130 /* FlickStream.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickStream.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2651E581D031E4700E57130 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D2651E5A1D031E4700E57130 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -206,6 +210,14 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		D22BFB3E1D32B1FA005635F8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D22BFB3F1D32B226005635F8 /* PhotoDetailView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		D2651E4C1D031E4600E57130 = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +309,7 @@
 		D2CB80AF1D0BC74F000F6013 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				D22BFB3E1D32B1FA005635F8 /* Views */,
 				D2CB80CE1D11147E000F6013 /* CollectionViews */,
 				D2CB80B01D0BC758000F6013 /* Cells */,
 			);
@@ -630,6 +643,7 @@
 				D2CB80D41D1712F2000F6013 /* PhotoTitle.swift in Sources */,
 				D2CB80C31D0D099F000F6013 /* PhotoInfo.swift in Sources */,
 				D2CB80F01D276C0E000F6013 /* InterestingnessDetailViewController.swift in Sources */,
+				D22BFB401D32B226005635F8 /* PhotoDetailView.swift in Sources */,
 				D2CB80EC1D2765A6000F6013 /* InterestingnessViewController.swift in Sources */,
 				D2651E5B1D031E4700E57130 /* ViewController.swift in Sources */,
 				D2651E8F1D0329C800E57130 /* APIConstants.swift in Sources */,
@@ -672,6 +686,7 @@
 				D2CB80CC1D0DD58A000F6013 /* Photo.swift in Sources */,
 				D2CB80B81D0D029C000F6013 /* EventBroker.swift in Sources */,
 				D2651E8C1D0324D200E57130 /* Constants.swift in Sources */,
+				D22BFB411D32B226005635F8 /* PhotoDetailView.swift in Sources */,
 				D20F90311D0351160007D2E4 /* Interestingness.swift in Sources */,
 				D2CB80C41D0D099F000F6013 /* PhotoInfo.swift in Sources */,
 				D2CB80F51D299846000F6013 /* InterestingnessCellDetailPushAnimationTransition.swift in Sources */,
@@ -701,6 +716,7 @@
 				D2CB80CD1D0DD58A000F6013 /* Photo.swift in Sources */,
 				D2CB80B91D0D029C000F6013 /* EventBroker.swift in Sources */,
 				D2651E8D1D0324D200E57130 /* Constants.swift in Sources */,
+				D22BFB421D32B226005635F8 /* PhotoDetailView.swift in Sources */,
 				D20F90321D0351160007D2E4 /* Interestingness.swift in Sources */,
 				D2CB80C51D0D099F000F6013 /* PhotoInfo.swift in Sources */,
 				D2CB80F61D299846000F6013 /* InterestingnessCellDetailPushAnimationTransition.swift in Sources */,
