@@ -47,6 +47,7 @@ struct FlickrAPIConstants {
 		static let RESPONSE_MESSAGE_OK = "ok"
 		static let RESPONSE_MESSAGE_FAIL = "fail"
 		static let EXTRAS_URL_S = "url_s"
+		static let EXTRAS = ["url_s", "url_m", "url_z"]
 		static let EXTRAS_ICON_SERVER = "icon_server"
 		static let EXTRAS_URL_M = "icon_m"
 	}

@@ -12,6 +12,8 @@ import Foundation
 class InterestingnessAPI: NSObject {
 	let kAPI = FlickrAPIConstants.self
 	func callAPI(completionHandler:([Interestingness]) -> (), errorHandler:(FlickrAPIError) -> () )  {
+		
+		let extras = kAPI.FlickrAPIValues.EXTRAS.reduce("",combine: {$0 + "," + $1})
 		let parametersPair = [
 		
 			kAPI.FlickrAPIKeys.API_KEY : kAPI.FlickrAPIValues.API_VALUE,
@@ -20,8 +22,12 @@ class InterestingnessAPI: NSObject {
 			kAPI.FlickrAPIKeys.PAGE: kAPI.FlickrAPIValues.PAGE_VALUE,
 			kAPI.FlickrAPIKeys.PER_PAGE: kAPI.FlickrAPIValues.PER_PAGE_VALUE,
 			kAPI.FlickrAPIKeys.PAYLOAD_FORMAT: kAPI.FlickrAPIValues.FORMAT,
-			kAPI.FlickrAPIKeys.EXTRAS : "\(kAPI.FlickrAPIValues.EXTRAS_ICON_SERVER), \(kAPI.FlickrAPIValues.EXTRAS_URL_S)"
+			kAPI.FlickrAPIKeys.EXTRAS : "\(kAPI.FlickrAPIValues.EXTRAS_ICON_SERVER), \(extras)"
 		]
+		
+		
+		
+		print("EXTRAS PARAMS ::: \(extras)")
 		
 		print("API parameters,  \(parametersPair)")
 		

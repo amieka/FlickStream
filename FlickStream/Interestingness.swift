@@ -25,6 +25,12 @@ class Interestingness: NSObject {
 	var url_m: String?
 	var width_s: NSNumber?
 	var height_s: NSNumber?
+	
 	var width_m: NSNumber?
 	var height_m: NSNumber?
+	
+	var url_z: String?
+	
+	var width_z: NSNumber?
+	var height_z: NSNumber?
 }

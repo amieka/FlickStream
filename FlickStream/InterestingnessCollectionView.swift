@@ -18,7 +18,7 @@ class InterestingnessCollectionView: UICollectionView , UICollectionViewDataSour
 	var interestingness:[Interestingness]?
 	let cellId = "CellId"
 	var interestingnesscellSelectedDelegate:InterestingnessCellSelectedDelegate?
-	
+	var interestingnessCollectionViewCell : FlickrPhotoCell?
 	override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
 		super.init(frame: frame, collectionViewLayout: layout)
 		self.registerClass(FlickrPhotoCell.self, forCellWithReuseIdentifier: cellId)
@@ -57,6 +57,7 @@ class InterestingnessCollectionView: UICollectionView , UICollectionViewDataSour
 	
 	func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
 		let interestingnessDetail = interestingness?[indexPath.item] as Interestingness!
+		self.interestingnessCollectionViewCell = collectionView.cellForItemAtIndexPath(indexPath) as! FlickrPhotoCell!
 		self.interestingnesscellSelectedDelegate?.didSelectInterestingnessCell(interestingnessDetail)
 	}
 }

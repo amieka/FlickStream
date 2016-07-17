@@ -59,7 +59,7 @@ class GetPhotoInfoAPI: NSObject {
 				let description = photo["description"] as! [String:AnyObject]
 				photoInfo.photo = Photo()
 				photoInfo.photo?.owner = Owner()
-				photoInfo.setValuesForKeysWithDictionary(photo)
+				photoInfo.safe_setValuesForKeysWithDictionary(photo)
 				photoInfo.photo?.edescription = description["_content"] as! String!
 				photoInfo.stat = parsedResults["stat"] as! String!
 				
